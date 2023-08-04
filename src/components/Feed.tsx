@@ -55,7 +55,7 @@ const Feed = () => {
     setSearchTimeout(
       setTimeout(() => {
         const searchResult = filterPrompts(e.target.value);
-        setSearchedResults(searchResult);
+        setSearchedResults(searchResult)
       }, 500)
     );
   };
