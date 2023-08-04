@@ -4,6 +4,7 @@ import NextAuth from "next-auth/next";
 import GoogleProvider from  'next-auth/providers/google';
 
 
+
 const handler = NextAuth({
     providers: [
       GoogleProvider({
@@ -19,9 +20,10 @@ const handler = NextAuth({
   
         return session;
       },
-      async signIn({ account, profile, user, credentials }) {
+      async signIn({  profile,}) {
         try {
           await dbconnect();
+          console.log('proo- ',profile)
   
           // check if user already exists
           const userExists = await User.findOne({ email: profile.email });
