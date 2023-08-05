@@ -21,7 +21,7 @@ const handler = NextAuth({
           // console.log('session check - ',session)
           if (sessionUser) {
             // Assign the user's MongoDB _id to a custom 'id' property
-            session?.user?.id = sessionUser._id.toString();
+            session?.user.id = sessionUser._id.toString();
           }
       
         // console.log('session now - ',session)
