@@ -2,14 +2,15 @@ import { dbconnect } from "@/config/dbConfig";
 import User from "@/models/user";
 import NextAuth from "next-auth/next";
 import GoogleProvider from  'next-auth/providers/google';
+import {  NextAuthOptions } from "next-auth";
 
 
 
 const handler = NextAuth({
     providers: [
       GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_SECRET,
+        clientId: process.env.GOOGLE_CLIENT_ID as string,
+        clientSecret: process.env.GOOGLE_SECRET as string,
       })
     ],
     callbacks: {
