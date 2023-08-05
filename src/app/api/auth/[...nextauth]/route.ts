@@ -18,11 +18,13 @@ const handler = NextAuth({
         // store the user id from MongoDB to session
         const sessionUser = await User.findOne({ email: session?.user?.email });
        
-  
-        if (session?.user?.id !== undefined && sessionUser !== null && sessionUser !== undefined) {
-          session.user.id = sessionUser._id.toString();
-        }
-  
+          // console.log('session check - ',session)
+          if (sessionUser) {
+            // Assign the user's MongoDB _id to a custom 'id' property
+            session.user.id = sessionUser._id.toString();
+          }
+      
+        // console.log('session now - ',session)
         return session;
       },
       async signIn({profile}) {
@@ -39,6 +41,7 @@ const handler = NextAuth({
               email: profile?.email,
               username: profile?.name.replace(" ", "").toLowerCase(),
               image: profile?.picture,
+              
             });
           }
   
