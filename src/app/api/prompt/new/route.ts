@@ -2,7 +2,7 @@
 import { dbconnect } from "@/config/dbConfig";
 import Prompt from "@/models/prompt";
 
-export const POST = async (request: { json: () => PromiseLike<{ userId: any; prompt: any; tag: any; }> | { userId: any; prompt: any; tag: any; }; }) => {
+export const POST = async (request:any) => {
     const { userId, prompt, tag } = await request.json();
 
     try {

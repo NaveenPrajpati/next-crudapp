@@ -17,7 +17,7 @@ export const GET = async (request: any, { params }: any) => {
     }
 }
 
-export const PATCH = async (request ) => {
+export const PATCH = async (request:any ) => {
     const { prompt, tag } = await request.json();
 
     try {
